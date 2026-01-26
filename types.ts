@@ -7,6 +7,7 @@ export interface Project {
   features: string[];
   refId: string;
   icon: string;
+  githubUrl: string;
 }
 
 export interface TechItem {
