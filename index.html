@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Augmented Reality Blueprint | System Architect</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Inconsolata:wght@400;700&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#39ff14',
+              'primary-glow': 'rgba(57, 255, 20, 0.3)',
+              'bg-deep': '#020402',
+              'surface-glass': 'rgba(10, 20, 10, 0.6)',
+              laser: 'rgba(57, 255, 20, 0.15)',
+            },
+            fontFamily: {
+              display: ['Michroma', 'sans-serif'],
+              mono: ['Inconsolata', 'monospace'],
+              sans: ['Space Grotesk', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+          --primary: #39ff14;
+          --primary-glow: rgba(57, 255, 20, 0.3);
+          --bg-deep: #020402;
+          --surface-glass: rgba(10, 20, 10, 0.6);
+          --laser: rgba(57, 255, 20, 0.15);
+      }
+      body {
+          background-color: var(--bg-deep);
+          color: #e0ffe0;
+          font-family: 'Inconsolata', monospace;
+          overflow-x: hidden;
+      }
+      h1, h2, h3, .display-font {
+          font-family: 'Michroma', sans-serif;
+          letter-spacing: 0.1em;
+      }
+      .ar-grid {
+          background-image: 
+              linear-gradient(var(--laser) 1px, transparent 1px),
+              linear-gradient(90deg, var(--laser) 1px, transparent 1px);
+          background-size: 50px 50px;
+      }
+      .hologram-card {
+          background: var(--surface-glass);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(57, 255, 20, 0.2);
+          box-shadow: 0 0 20px rgba(57, 255, 20, 0.05);
+          position: relative;
+      }
+      .hologram-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 2px;
+          background: linear-gradient(90deg, transparent, var(--primary), transparent);
+          opacity: 0.5;
+      }
+      .laser-line {
+          position: absolute;
+          background: var(--primary);
+          box-shadow: 0 0 8px var(--primary);
+          pointer-events: none;
+      }
+      .spec-tag {
+          font-family: 'Inconsolata', monospace;
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          color: var(--primary);
+          border: 1px solid var(--primary);
+          padding: 2px 6px;
+          background: rgba(57, 255, 20, 0.05);
+          display: inline-block;
+      }
+      .scanline {
+          width: 100%;
+          height: 100px;
+          z-index: 100;
+          background: linear-gradient(0deg, transparent 0%, rgba(57, 255, 20, 0.05) 50%, transparent 100%);
+          position: fixed;
+          pointer-events: none;
+          top: -100px;
+          animation: scan 8s linear infinite;
+      }
+      @keyframes scan {
+          0% { top: -100px; }
+          100% { top: 100%; }
+      }
+      .photo-glitch-container {
+          position: relative;
+          overflow: hidden;
+          border: 2px solid var(--primary);
+          box-shadow: 0 0 15px var(--primary-glow);
+      }
+      .photo-overlay-scanline {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: var(--primary);
+          opacity: 0.5;
+          box-shadow: 0 0 10px var(--primary);
+          animation: scan-photo 4s linear infinite;
+      }
+      @keyframes scan-photo {
+          0% { top: 0%; }
+          100% { top: 100%; }
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #020402; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #39ff14; 
+        border-radius: 0px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="selection:bg-primary selection:text-black ar-grid">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
