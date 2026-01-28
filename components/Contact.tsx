@@ -34,26 +34,26 @@ export const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 lg:py-40 relative overflow-hidden">
+    <section id="contact" className="py-16 lg:py-40 relative overflow-hidden">
       <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
           <div>
-            <span className="display-font text-[10px] text-primary bg-primary/10 px-3 py-1 border border-primary/30 mb-6 lg:mb-8 inline-block">
+            <span className="display-font text-[10px] text-primary bg-primary/10 px-3 py-1 border border-primary/30 mb-4 lg:mb-8 inline-block">
               TERMINAL_UPLINK
             </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter text-white mb-6 lg:mb-10 leading-none">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black tracking-tighter text-white mb-4 lg:mb-10 leading-none">
               READY TO
               <br />
               <span className="text-primary">DEPLOY?</span>
             </h2>
-            <p className="text-xs sm:text-sm font-mono text-primary/60 max-w-md mb-8 lg:mb-12 leading-loose">
+            <p className="text-xs sm:text-sm font-mono text-primary/60 max-w-md mb-6 lg:mb-12 leading-loose">
               ESTABLISHING DIRECT COMMUNICATION CHANNELS FOR SYSTEM INTEGRATION
               AND ARCHITECTURAL CONSULTATION. AUTHENTICATION REQUIRED.
             </p>
 
-            <div className="flex items-center gap-6 mb-12 lg:mb-0">
+            <div className="flex items-center gap-4 lg:gap-6 mb-8 lg:mb-0">
               <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-primary/30 flex items-center justify-center animate-pulse">
                 <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-primary rounded-full"></div>
               </div>
@@ -63,7 +63,7 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-6">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:gap-6">
             {contactLinks.map((item) => (
               <a
                 key={item.label}
@@ -72,7 +72,7 @@ export const Contact: React.FC = () => {
                 rel={item.isExternal ? "noopener noreferrer" : undefined}
                 className="block h-full"
               >
-                <HoloCard className="p-6 sm:p-10 flex flex-col h-full justify-between group hover:bg-primary/20 transition-all border-primary/40 cursor-pointer">
+                <HoloCard className="p-4 sm:p-6 lg:p-10 flex flex-col h-full justify-between group hover:bg-primary/20 transition-all border-primary/40 cursor-pointer">
                   <span className="material-symbols-outlined mb-4 lg:mb-6 text-2xl lg:text-3xl text-primary group-hover:scale-110 group-hover:text-white transition-all duration-300">
                     {item.icon}
                   </span>

@@ -2,8 +2,8 @@ import React from "react";
 import { PROJECTS } from "../constants";
 import { HoloCard } from "./ui/HoloCard";
 
-import HalaqahImage from "../src/assets/halaqah-arch.png";
-import BotWaImage from "../src/assets/bot-wa-engine.png";
+import HalaqahImage from "@/src/assets/halaqah-arch.png";
+import BotWaImage from "@/src/assets/bot-wa-engine.png";
 
 export const Projects: React.FC = () => {
   const handleOpenLink = (url: string) => {
@@ -11,17 +11,20 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="work" className="py-32 border-t border-primary/10 relative">
+    <section
+      id="work"
+      className="py-16 lg:py-32 border-t border-primary/10 relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="mb-24 flex items-center gap-6">
+        <div className="mb-12 lg:mb-24 flex flex-wrap items-center gap-4 lg:gap-6">
           <span className="spec-tag">SECTION_04</span>
-          <h2 className="text-4xl font-bold tracking-widest text-white display-font">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-widest text-white display-font">
             DEPLOYED <span className="text-primary">MODULES</span>
           </h2>
-          <div className="h-[1px] flex-grow bg-primary/20"></div>
+          <div className="h-[1px] flex-grow bg-primary/20 hidden sm:block"></div>
         </div>
 
-        <div className="space-y-40">
+        <div className="space-y-20 lg:space-y-40">
           {PROJECTS.map((project, index) => {
             const isEven = index % 2 === 0;
             const moduleId =
@@ -37,10 +40,10 @@ export const Projects: React.FC = () => {
             return (
               <div
                 key={project.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
                 <div
-                  className={`lg:col-span-7 relative cursor-pointer ${isEven ? "order-2 lg:order-1" : "order-2 lg:order-2"}`}
+                  className={`lg:col-span-7 relative cursor-pointer order-1 lg:${isEven ? "order-1" : "order-2"}`}
                   onClick={() => handleOpenLink(githubLink)}
                   title="Click to view repository"
                 >
@@ -98,7 +101,7 @@ export const Projects: React.FC = () => {
                 </div>
 
                 <div
-                  className={`lg:col-span-5 ${isEven ? "order-1 lg:order-2" : "order-1 lg:order-1"}`}
+                  className={`lg:col-span-5 order-2 lg:${isEven ? "order-2" : "order-1"}`}
                 >
                   <div className="flex flex-wrap gap-3 mb-8">
                     {project.tags.map((tag, i) => (
@@ -111,15 +114,15 @@ export const Projects: React.FC = () => {
                     ))}
                   </div>
 
-                  <h3 className="text-3xl font-bold mb-6 text-white tracking-tight display-font">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-white tracking-tight display-font">
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-primary/70 mb-10 leading-relaxed font-mono italic border-l-2 border-primary/30 pl-6">
+                  <p className="text-xs sm:text-sm text-primary/70 mb-6 lg:mb-10 leading-relaxed font-mono italic border-l-2 border-primary/30 pl-4 lg:pl-6">
                     {project.description}
                   </p>
 
-                  <ul className="space-y-4 mb-10">
+                  <ul className="space-y-3 lg:space-y-4 mb-6 lg:mb-10">
                     {project.features.map((feat, i) => (
                       <li
                         key={i}

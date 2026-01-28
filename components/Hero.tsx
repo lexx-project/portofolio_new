@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileImage from "../src/assets/profile.png";
+import ProfileImage from "@/src/assets/profile.png";
 
 export const Hero: React.FC = () => {
   return (
@@ -28,14 +28,14 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Adjusted responsive font sizes: smaller on lg screens to fit column */}
-          <h1 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white">
+          <h1 className="mb-6 text-[8.5vw] sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight text-white">
             FOCUS
             <br />
             <span className="text-primary drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]">
               EXECUTE
             </span>
             <br />
-            BREAKTHROUGH
+            ACCELERATE
           </h1>
 
           <div className="hologram-card p-6 mb-12 max-w-xl border-l-4 border-l-primary">
@@ -68,7 +68,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Visual - Increased Z-Index to 20 so it covers the text */}
-        <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center z-20">
+        <div className="flex lg:col-span-5 relative items-center justify-center z-20 mt-12 lg:mt-0 w-full max-w-xs lg:max-w-full mx-auto">
           <div className="relative w-full max-w-md">
             {/* Corner markers */}
             <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-primary"></div>
