@@ -2,8 +2,10 @@ import React from "react";
 import { PROJECTS } from "../constants";
 import { HoloCard } from "./ui/HoloCard";
 
+import HalaqahImage from "../src/assets/halaqah-arch.png";
+import BotWaImage from "../src/assets/bot-wa-engine.png";
+
 export const Projects: React.FC = () => {
-  // Fungsi helper untuk buka link (biar codingan di bawah lebih rapi)
   const handleOpenLink = (url: string) => {
     if (url) window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -11,7 +13,6 @@ export const Projects: React.FC = () => {
   return (
     <section id="work" className="py-32 border-t border-primary/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Header */}
         <div className="mb-24 flex items-center gap-6">
           <span className="spec-tag">SECTION_04</span>
           <h2 className="text-4xl font-bold tracking-widest text-white display-font">
@@ -28,14 +29,9 @@ export const Projects: React.FC = () => {
                 ? "MODULE_HALAQAH_01"
                 : "MODULE_BOT_WA_02";
 
-            // Tentukan path gambar
             const imagePath =
-              project.id === "halaqah"
-                ? "../src/assets/halaqah-arch.png"
-                : "../src/assets/bot-wa-engine.png";
+              project.id === "halaqah" ? HalaqahImage : BotWaImage;
 
-            // Ambil link github dari constants (pastikan propertinya sesuai, misal githubUrl atau link)
-            // Menggunakan 'as string' jika TS komplain, tapi sebaiknya definisikan di tipe data
             const githubLink = (project as any).githubUrl || "#";
 
             return (
@@ -43,7 +39,6 @@ export const Projects: React.FC = () => {
                 key={project.id}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
               >
-                {/* Visual Area (CLICKABLE) */}
                 <div
                   className={`lg:col-span-7 relative cursor-pointer ${isEven ? "order-2 lg:order-1" : "order-2 lg:order-2"}`}
                   onClick={() => handleOpenLink(githubLink)}
@@ -51,7 +46,6 @@ export const Projects: React.FC = () => {
                 >
                   <HoloCard className="p-4 group">
                     <div className="aspect-video bg-primary/5 flex items-center justify-center relative overflow-hidden border border-primary/20 group-hover:border-primary/40 transition-colors">
-                      {/* 1. IMAGE LAYER */}
                       <img
                         src={imagePath}
                         alt={`${project.title} Visualization`}
@@ -61,16 +55,13 @@ export const Projects: React.FC = () => {
                         }}
                       />
 
-                      {/* 2. OVERLAY EFFECTS */}
                       <div className="absolute inset-0 bg-primary/20 mix-blend-overlay pointer-events-none z-0"></div>
                       <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] pointer-events-none opacity-30 z-0"></div>
 
-                      {/* 3. GRID & DECORATION */}
                       <div
                         className={`absolute inset-0 opacity-10 pointer-events-none z-0 ${isEven ? "bg-[radial-gradient(var(--primary)_1px,transparent_1px)] bg-[length:20px_20px]" : "bg-[linear-gradient(90deg,var(--primary)_1px,transparent_1px),linear-gradient(var(--primary)_1px,transparent_1px)] bg-[length:40px_40px]"}`}
                       ></div>
 
-                      {/* 4. LABELS */}
                       <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-primary animate-pulse shadow-[0_0_10px_var(--primary)]"></div>
@@ -83,7 +74,6 @@ export const Projects: React.FC = () => {
                         </span>
                       </div>
 
-                      {/* Icon Hover Indication */}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none">
                         <div className="bg-black/80 backdrop-blur-md px-4 py-2 border border-primary/50 text-primary display-font text-xs tracking-widest flex items-center gap-2">
                           OPEN_REPOSITORY{" "}
@@ -107,7 +97,6 @@ export const Projects: React.FC = () => {
                   </HoloCard>
                 </div>
 
-                {/* Text Content */}
                 <div
                   className={`lg:col-span-5 ${isEven ? "order-1 lg:order-2" : "order-1 lg:order-1"}`}
                 >
@@ -144,7 +133,6 @@ export const Projects: React.FC = () => {
                     ))}
                   </ul>
 
-                  {/* BUTTON LINK */}
                   <a
                     href={githubLink}
                     target="_blank"

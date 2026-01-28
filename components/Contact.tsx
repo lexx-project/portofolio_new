@@ -2,34 +2,33 @@ import React from "react";
 import { HoloCard } from "./ui/HoloCard";
 
 export const Contact: React.FC = () => {
-  // Data link kontak (Silakan ganti string-nya dengan link aslimu)
   const contactLinks = [
     {
       icon: "mail",
       label: "EMAIL_ME",
       sub: "ENCRYPTED_SEND",
-      href: "mailto:passlexyganteng@gmail.com", // Ganti dengan email lu
+      href: "mailto:passlexyganteng@gmail.com",
       isExternal: false,
     },
     {
-      icon: "data_object", // Ikon {} kurawal, pas buat GitHub
+      icon: "data_object",
       label: "GITHUB_DB",
       sub: "REPO_ACCESS",
-      href: "https://github.com/lexx-project", // Ganti link GitHub lu
+      href: "https://github.com/lexx-project",
       isExternal: true,
     },
     {
-      icon: "hub", // Ikon network node, pas buat LinkedIn
+      icon: "hub",
       label: "LINKEDIN_SYS",
       sub: "CONNECT_NODES",
-      href: "https://www.linkedin.com/in/lexy-evandra-79155237a", // Ganti link LinkedIn lu
+      href: "https://www.linkedin.com/in/lexy-evandra-79155237a",
       isExternal: true,
     },
     {
-      icon: "alternate_email", // Ikon @, pas buat Instagram/Sosmed
+      icon: "alternate_email",
       label: "SOCIAL_INSTA",
       sub: "USER_PROFILE",
-      href: "https://instagram.com/lexycuy", // Ganti link Instagram lu
+      href: "https://instagram.com/lexycuy",
       isExternal: true,
     },
   ];
@@ -40,7 +39,6 @@ export const Contact: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          {/* Left Info */}
           <div>
             <span className="display-font text-[10px] text-primary bg-primary/10 px-3 py-1 border border-primary/30 mb-6 lg:mb-8 inline-block">
               TERMINAL_UPLINK
@@ -65,7 +63,6 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Grid (Links) */}
           <div className="grid grid-cols-2 gap-3 sm:gap-6">
             {contactLinks.map((item) => (
               <a
@@ -73,7 +70,7 @@ export const Contact: React.FC = () => {
                 href={item.href}
                 target={item.isExternal ? "_blank" : "_self"}
                 rel={item.isExternal ? "noopener noreferrer" : undefined}
-                className="block h-full" // block agar seluruh area bisa diklik
+                className="block h-full"
               >
                 <HoloCard className="p-6 sm:p-10 flex flex-col h-full justify-between group hover:bg-primary/20 transition-all border-primary/40 cursor-pointer">
                   <span className="material-symbols-outlined mb-4 lg:mb-6 text-2xl lg:text-3xl text-primary group-hover:scale-110 group-hover:text-white transition-all duration-300">
