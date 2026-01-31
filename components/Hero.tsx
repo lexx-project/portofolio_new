@@ -1,5 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ProfileImage from "@/src/assets/profile.png";
+import { HackerText } from "./ui/HackerText";
 
 export const Hero: React.FC = () => {
   return (
@@ -20,8 +22,13 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-        {/* Left Content - Reduced Z-Index to 10 so it goes BEHIND the visual if overlap occurs */}
-        <div className="lg:col-span-7 flex flex-col justify-center relative z-10">
+        {/* Left Content - Text with slide-in animation */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 2.8, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-7 flex flex-col justify-center relative z-10"
+        >
           <div className="mb-6 flex items-center gap-4">
             <span className="spec-tag">SCAN_ID: 772-AR</span>
             <div className="h-[1px] flex-grow bg-gradient-to-r from-primary/50 to-transparent max-w-[200px]"></div>
@@ -29,13 +36,13 @@ export const Hero: React.FC = () => {
 
           {/* Adjusted responsive font sizes: smaller on lg screens to fit column */}
           <h1 className="mb-6 text-[8.5vw] sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight text-white">
-            FOCUS
+            <HackerText text="FOCUS" />
             <br />
             <span className="text-primary drop-shadow-[0_0_15px_rgba(57,255,20,0.5)]">
-              EXECUTE
+              <HackerText text="EXECUTE" />
             </span>
             <br />
-            ACCELERATE
+            <HackerText text="ACCELERATE" />
           </h1>
 
           <div className="hologram-card p-6 mb-12 max-w-xl border-l-4 border-l-primary">
@@ -65,10 +72,15 @@ export const Hero: React.FC = () => {
               INIT_CONNECTION
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Visual - Increased Z-Index to 20 so it covers the text */}
-        <div className="flex lg:col-span-5 relative items-center justify-center z-20 mt-12 lg:mt-0 w-full max-w-xs lg:max-w-full mx-auto">
+        {/* Right Visual - Profile image with scale-up animation */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 3, ease: [0.22, 1, 0.36, 1] }}
+          className="flex lg:col-span-5 relative items-center justify-center z-20 mt-12 lg:mt-0 w-full max-w-xs lg:max-w-full mx-auto"
+        >
           <div className="relative w-full max-w-md">
             {/* Corner markers */}
             <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-primary"></div>
@@ -125,7 +137,7 @@ export const Hero: React.FC = () => {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

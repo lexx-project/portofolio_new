@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { NAV_ITEMS } from "../constants";
 
 export const Header: React.FC = () => {
@@ -13,7 +14,12 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-primary/20 bg-black/40 backdrop-blur-md h-16">
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, delay: 2.5, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-0 z-50 w-full border-b border-primary/20 bg-black/40 backdrop-blur-md h-16"
+    >
       <div className="mx-auto flex h-full max-w-full items-center justify-between px-4 sm:px-8">
         {/* Logo */}
         <div
@@ -99,6 +105,6 @@ export const Header: React.FC = () => {
           ))}
         </div>
       )}
-    </header>
+    </motion.header>
   );
 };
